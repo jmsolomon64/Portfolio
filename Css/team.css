@@ -1,0 +1,50 @@
+.team { 
+    background: #734f96;
+    flex-direction: column;
+}
+
+.catCard {
+    height: 20vh;
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: auto;
+    display: flex;
+}
+
+.imgHolder {
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    margin-left: 15px;
+    border: 1px solid black;
+    border-radius: 300px;
+    max-width: 300px;
+    background: black;
+}
+
+.catName {
+    text-align: center;
+    margin: auto;
+}
+
+.catCard p {
+    text-align: center;
+    margin: auto;
+}
+
+.firstCat {
+    background: #c0e9ef;
+}
+
+.secondCat {
+    background: #c4d8f3;
+}
+
+.thirdCat {
+    background: #c8c7f7;;
+}
+
+.fourthCat {
+    background: #ccb5fb;
+}
