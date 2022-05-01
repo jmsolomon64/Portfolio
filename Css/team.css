@@ -10,6 +10,7 @@
     border-radius: 15px;
     margin: auto;
     display: flex;
+    overflow: scroll;
 }
 
 .imgHolder {
@@ -48,4 +49,14 @@
 
 .fourthCat {
     background: #ccb5fb;
+}
+
+.catCard::-webkit-scrollbar {
+    display: none;
+}
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+.catCard {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

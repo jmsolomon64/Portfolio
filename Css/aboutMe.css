@@ -1,3 +1,73 @@
 .aboutMeSect {
     background: #e7d7fe;
+    flex-direction: column;
+}
+
+.bruh {
+    display: flex;
+}
+
+.aboutLabel {
+    width: 100%;
+}
+
+.firstThird {
+    width: 22%;
+    height: 100%;
+    margin: auto;
+}
+.secondThird {
+    width: 22%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+.thirdThird {
+    width: 45%;
+    height: 100%;
+    margin: auto;
+}
+
+.headShotHolder {
+    height: 20vh;
+    width: 15vw;
+    background: black;
+    margin: auto;
+}
+
+.smallLabel {
+    font-size: 1.5rem;
+}
+
+.smallArticle {
+    border: 1px solid black;
+    border-radius: 5px;
+    background: rgba(133, 81, 157, 0.285);
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.aboutP {
+    margin: 2px;
+    margin-bottom: 5vh;
+}
+
+.infoPoint {
+    font-size: 1.5rem;
+}
+
+.goal {
+    margin-top: 20%;
+}
+.bio {
+    margin-top: 20%;
+    text-align: center;
+}
+
+.smallArticle h3 {
+    margin-top: 1vh;
+}
+
+.skills ul {
+    list-style: none;
 }
