@@ -77,3 +77,12 @@
     justify-content: space-evenly;
     margin-bottom: 2vh;
 }
+
+.skillsHolder {
+    display: flex;
+
+}
+
+.skillsHolder ul {
+    width: 50%;
+}
