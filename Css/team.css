@@ -1,5 +1,5 @@
 .team { 
-    background: #734f96;
+    background: #8669ac;
     flex-direction: column;
 }
 
@@ -15,13 +15,23 @@
 
 .imgHolder {
     width: 60%;
-    height: 70%;
+    height: 85%;
     margin: auto;
     margin-left: 15px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 300px;
     max-width: 300px;
-    background: black;
+    /* background: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgHolder img {
+    height: 90%;
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 .catName {

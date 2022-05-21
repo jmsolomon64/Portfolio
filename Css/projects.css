@@ -1,3 +1,53 @@
 .projects {
     background: #ddbff3;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectHolder {
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+}
+
+.projectArt {
+    max-height: 85%;
+    width: 30%;
+    background: #5c7e53;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: scroll;
+}
+
+.projectArt h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.projectCard {
+    width: 95%;
+    background: #b4c7ac;
+    margin: auto;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 60% 10%;
+}
+
+.projectImg {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    background-color: black;
+}
+
+.projectCard h3, .projectCard p {
+    text-align: center;
+}
+
+.projectCard p {
+    grid-column: 1/3;
+}
+::-webkit-scrollbar {
+    display: none;
 }

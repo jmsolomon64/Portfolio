@@ -29,10 +29,12 @@
 }
 
 .headShotHolder {
-    height: 20vh;
-    width: 15vw;
-    background: black;
+    height: 35vh;
+    width: 20vw;
+    /* background: black; */
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .smallLabel {
