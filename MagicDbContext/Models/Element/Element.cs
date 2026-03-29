@@ -19,6 +19,7 @@ public class Element
     [Key]
     public int ElementId {get; set;}
     //Fire, Water, Earth, Air, Chaos, Order
+    public int ElementEnum {get; set;}
     [MaxLength(5)]
     public string Name {get; set;} = "Please add name to this symbol!";
     [ForeignKey(nameof(MainSymbol))]

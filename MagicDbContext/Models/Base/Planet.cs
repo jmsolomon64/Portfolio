@@ -32,4 +32,8 @@ public class Planet
     public bool IsClassical {get; set;}
     [MaxLength(7)]
     public string Name {get; set;} = "PlanetX";
+    [ForeignKey(nameof(Symbol))]
+    public int? SymbolId {get; set;}
+    public Symbol? Symbol {get; set;}
+    public int PlanetEnum {get; set;}
 }

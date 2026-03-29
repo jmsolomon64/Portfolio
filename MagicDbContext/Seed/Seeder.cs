@@ -1,4 +1,5 @@
 ﻿using Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace MagicDbContext;
 
@@ -6,28 +7,36 @@ public class Seeder
 {
     public IEnumerable<IGrouping<int, ISeed?>> Seeds {get; set;}
     private readonly MagicDbContext _ctx;
-    private static Type ISeedType = typeof(ISeed);
 
-    public Seeder(MagicDbContext ctx)
+    public Seeder(string connString)
     {
-        _ctx = ctx;
+        _ctx = PopulateDbContext(connString);
         PopulateISeedTypes();
     }
 
-    public async Task Seed()
+    public void Seed()
     {
-        foreach(IGrouping<int, ISeed?> seed in Seeds)
+        foreach(IGrouping<int, ISeed?> group in Seeds)
         {
-            List<Task> tasksToDo = seed.Where(x => x != null)
-                .Select(x => x.Seed()).ToList();
-            await Task.WhenAll(tasksToDo);
+            foreach(ISeed? seed in group)
+                if(seed != null) seed.Seed();
+            
             _ctx.SaveChanges();
         }
     }
 
+
     private void PopulateISeedTypes()
     {
-        Seeds = ReflectionHelper.GetInstancesImplementingInterface<ISeed>(ISeedType, _ctx)
-            .GroupBy(x => x.Priority());
+        Seeds = ReflectionHelper.GetInstancesImplementingInterface<ISeed>(_ctx)
+            .GroupBy(x => x.Priority())
+            .OrderBy(x => x.Key);
+    }
+
+    private static MagicDbContext PopulateDbContext(string connString)
+    {
+        var dbOptions = new DbContextOptionsBuilder()
+            .UseSqlServer(connString);
+        return new MagicDbContext(dbOptions.Options);
     }
 }

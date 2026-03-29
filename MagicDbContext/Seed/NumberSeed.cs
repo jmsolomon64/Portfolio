@@ -12,13 +12,10 @@ internal class NumberSeed : ISeed
 
     public int Priority() => 1;
 
-    public Task Seed()
+    public void Seed()
     {
-        return Task.Run(() =>
-        {
-            Console.WriteLine("Seeding Numbers...");
-            SeedNumbersForMajorArcana();
-        });
+        Console.WriteLine("Seeding Numbers...");
+        SeedNumbersForMajorArcana();
     }
 
     private void SeedNumbersForMajorArcana()
@@ -30,14 +27,15 @@ internal class NumberSeed : ISeed
 
     private void SeedNumber(int number, string? description = null)
     {
-        Number? temp = _ctx.Numbers.FirstOrDefault(x => x.NumberId == number);
+        Number? temp = _ctx.Numbers.FirstOrDefault(x => x.Value  == number);
+        bool isNew = temp == null;
 
-        if(temp == null)
-            temp = new Number() { NumberId = number };
+        if(isNew)
+            temp = new Number() { Value = number };
 
-        if(!string.IsNullOrEmpty(description))
-            temp.Description = description;
+        temp.Description = description ?? string.Empty;
         
-        _ctx.Update(temp);
+        if(isNew) _ctx.Add(temp);
+        else _ctx.Update(temp);
     }
 }

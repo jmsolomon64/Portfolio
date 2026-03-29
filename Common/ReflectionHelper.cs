@@ -17,9 +17,20 @@ public static class ReflectionHelper
 
     private static IEnumerable<Type> GetTypesImplementingInterface<T>()
     {
-        return AppDomain.CurrentDomain.GetAssemblies()
+        // return AppDomain.CurrentDomain.GetAssemblies()
+        // .SelectMany(x => x.GetTypes())
+        // .Where(x => typeof(T).IsAssignableFrom(x) && x.IsClass && !x.IsAbstract);
+
+        IEnumerable<Type> results = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(x => x.GetTypes())
             .Where(x => typeof(T).IsAssignableFrom(x) && x.IsClass && !x.IsAbstract);
+
+        foreach(Type result in results)
+        {
+            Console.WriteLine($"Type Discovered: {result.Name}");
+        }
+
+        return results;
     }
 
     
